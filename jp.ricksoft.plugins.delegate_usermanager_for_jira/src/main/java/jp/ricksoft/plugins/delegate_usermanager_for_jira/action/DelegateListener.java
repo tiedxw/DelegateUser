@@ -36,26 +36,6 @@ public class DelegateListener implements InitializingBean, DisposableBean {
         this.eventPublisher = eventPublisher;
     }
 
-    /**
-     * Called when the plugin has been enabled.
-     * @throws Exception
-     */
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        log.info("Enabling plugin");
-        eventPublisher.register(this);
-    }
-
-    /**
-     * Called when the plugin is being disabled or removed.
-     * @throws Exception
-     */
-    @Override
-    public void destroy() throws Exception {
-        log.info("Disabling plugin");
-        eventPublisher.unregister(this);
-    }
-
     @EventListener
     public void onIssueEvent(IssueEvent issueEvent) {
         Long eventTypeId = issueEvent.getEventTypeId();
@@ -75,7 +55,7 @@ public class DelegateListener implements InitializingBean, DisposableBean {
              * 実際にコメントするユーザー
              * プロジェクトリーダー
              */
-            ApplicationUser user = issue.getProjectObject().getProjectLead();
+            ApplicationUser projectLeader = issue.getProjectObject().getProjectLead();
             ApplicationUser reporter = issue.getReporter();
             PropertySet properties = userPropertyManager.getPropertySet(reporter);
 
@@ -113,5 +93,24 @@ public class DelegateListener implements InitializingBean, DisposableBean {
             }
         }
     }
+	
+	/**
+     * Called when the plugin has been enabled.
+     * @throws Exception
+     */
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        log.info("Enabling plugin");
+        eventPublisher.register(this);
+    }
 
+    /**
+     * Called when the plugin is being disabled or removed.
+     * @throws Exception
+     */
+    @Override
+    public void destroy() throws Exception {
+        log.info("Disabling plugin");
+        eventPublisher.unregister(this);
+    }
 }
