@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>$i18n.getText("admin.menu.usersandgroups.user.browser")</title>
+	<meta name="decorator" content="panel-admin"/>
+</head>
+<body class="aui-page-focused aui-page-focused-medium">
+	<form action="DelegateEditUser.jspa" class="aui"  id="edit-user" method="post">
+		<div class="form-body">
+		    #if($action.hasAnyErrors())
+				<div class="aui-message error">       
+				<span class="aui-icon icon-error"></span>
+				#foreach ($error in $action.getErrors().values())  
+					<p>$error</p>
+				#end
+				#foreach ($error in $action.getErrorMessages())  
+					<p>$error</p>
+				#end
+				</div>
+			#end
+			<h2>ユーザープロファイルの編集</h2>
+			<div class="field-group">
+		    	<label for="edit-user-email">メールアドレス<span class="aui-icon icon-required"> 必須</span></label>
+				<input class="text id="edit-user-email" placeholder="例：charlie@atlassian.com" maxlength="255" name="email" value="$!action.email" type="text" />
+			</div>
+			<div class="field-group">
+				<label for="edit-user-fullname">フルネーム<span class="aui-icon icon-required"> 必須</span></label>
+				<input class="text" id="edit-user-fullname" placeholder="ユーザーのフルネーム" maxlength="255" name="fullName" value="$!action.fullName" type="text" />
+			</div>
+			#if ($action.showRenameUser() == true)
+			<div class="field-group">
+				<label for="edit-user-username">ユーザー名<span class="aui-icon icon-required"> 必須</span></label>
+				<input class="text"  id="edit-user-username"  placeholder="希望のユーザー名" maxlength="255" name="username" value="$!action.username" type="text" />
+			</div>
+			#end
+			<fieldset class="group">
+				<div class="checkbox">
+					#if ($action.rickcloud)
+					<input checked="checked" class="checkbox" id="edit-user-rickcloud" name="rickcloud" type="checkbox" value="true" /><label for="edit-user-rickcloud">RickCloud利用者</label>
+					#else
+					<input class="checkbox" id="edit-user-rickcloud" name="rickcloud" type="checkbox" value="true" /><label for="edit-user-rickcloud">RickCloud利用者</label>
+					#end
+				</div>
+				<div class="checkbox">
+					#if ($action.silver)
+					<input checked="checked" class="checkbox" id="edit-user-silver" name="silver" type="checkbox" value="true" /><label for="edit-user-silver">シルバサポート利用者</label>
+					#else
+					<input class="checkbox" id="edit-user-silver" name="silver" type="checkbox" value="true" /><label for="edit-user-silver">シルバサポート利用者</label>
+					#end
+				</div>
+				<div class="checkbox">
+					#if ($action.gold)
+					<input checked="checked" class="checkbox" id="edit-user-gold" name="gold" type="checkbox" value="true" /><label for="edit-user-gold">ゴールドサポート利用者</label>
+					#else
+					<input class="checkbox" id="edit-user-gold" name="gold" type="checkbox" value="true" /><label for="edit-user-gold">ゴールドサポート利用者</label>
+					#end
+				</div>
+				<div class="checkbox">
+					#if ($action.evaluation)
+					<input checked="checked" class="checkbox" id="edit-user-evaluation" name="evaluation" type="checkbox" value="true" /><label for="edit-user-evaluation">評価ライセンス利用者</label>
+					#else
+					<input class="checkbox" id="edit-user-evaluation" name="evaluation" type="checkbox" value="true" /><label for="edit-user-evaluation">評価ライセンス利用者</label>
+					#end
+				</div>
+			</fieldset>
+			#if ($action.showActiveCheckbox() == true)
+			<fieldset class="group">
+				<div class="checkbox">
+					#if ($action.isActive())
+					<input checked="checked" class="checkbox" id="edit-user-active" name="active" type="checkbox" value="true" /><label for="edit-user-active">アクティブ</label>
+					#else
+					<input class="checkbox" id="edit-user-active" name="active" type="checkbox" value="true" /><label for="edit-user-active">アクティブ</label>
+					#end
+				</div>
+			</fieldset>
+			#end
+			<div class="field-group">
+				<label for="edit-user-properties">プロパティ</label>
+				<textarea name="properties" style="margin: 0px; height: 200px; width: 300px;">$!action.properties</textarea>
+			</div>
+			<div class="hidden">
+			    <input name="editName" type="hidden" value="$action.getEditName()"/>
+				<input name="atl_token" type="hidden" value="$atl_token">
+			</div>
+		</div>
+		<div class="buttons-container form-footer">
+		    <div class="buttons">
+				<input class="aui-button aui-button-primary" id="edit-user-submit" name="Create" title="このフォームを送信します" type="submit" value="更新" />
+				<a class="aui-button aui-button-link cancel" href="DelegateUserBrowser.jspa" id="edit-user-cancel" title="キャンセルします">キャンセル</a>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
