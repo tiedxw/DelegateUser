@@ -41,6 +41,13 @@ public class DelegateManager {
 	private static final String ENCRYPT_KEY = "DRK9nbYruScEzwFX";
 	private static final String ENCRYPT_ALGORITHM = "AES";
 
+
+	public static String getRickcloudUsresGruopName() { return RICKCLOUD_USRES_GRUOP_NAME; }
+	public static String getSilverSupportUsresGruopName() { return SILVER_SUPPORT_USRES_GRUOP_NAME; }
+	public static String getGoldSupportUsresGruopName() { return GOLD_SUPPORT_USRES_GRUOP_NAME; }
+	public static String getEvaluationSupportUsresGruopName() { return EVALUATION_SUPPORT_USRES_GRUOP_NAME; }
+
+
 	public static List<String> splitByLength(String s, int length) {
 		List<String> list = new ArrayList<>();
 		if (!StringUtils.isEmpty(s)) {
