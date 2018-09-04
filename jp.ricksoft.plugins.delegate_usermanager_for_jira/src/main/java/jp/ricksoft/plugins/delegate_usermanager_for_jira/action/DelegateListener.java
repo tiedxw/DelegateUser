@@ -13,7 +13,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.atlassian.jira.component.ComponentAccessor;
-import com.atlassian.jira.user.util.UserManager;
+//import com.atlassian.jira.user.util.UserManager;
 import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.UserPropertyManager;
 import com.atlassian.jira.issue.comments.CommentManager;
@@ -41,7 +41,7 @@ public class DelegateListener implements InitializingBean, DisposableBean {
         Long eventTypeId = issueEvent.getEventTypeId();
         Issue issue = issueEvent.getIssue();
 
-        UserManager userManager = ComponentAccessor.getUserManager();
+        //UserManager userManager = ComponentAccessor.getUserManager();
         GroupManager groupManager = ComponentAccessor.getGroupManager();
         UserPropertyManager userPropertyManager = ComponentAccessor.getUserPropertyManager();
         CommentManager commentManager = ComponentAccessor.getCommentManager();
