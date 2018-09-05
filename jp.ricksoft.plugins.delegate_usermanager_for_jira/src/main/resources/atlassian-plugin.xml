@@ -60,18 +60,6 @@
 			</action>
 		</actions>
 	</webwork1>
-    <webwork1 key="${project.groupId}.${project.artifactId}.webwork.edituser"
-		name="${project.groupId}.${project.artifactId}.webwork.comment"
-		roles-required="pickusers">
-		<actions>
-			<action
-				name="${project.groupId}.${project.artifactId}.action.DelegateListener"
-				alias="DelegateListener">
-				<!-- <view name="input">/templates/edituser.vm</view>
-				<view name="error">/templates/edituser.vm</view> -->
-			</action>
-		</actions>
-	</webwork1>
 	<web-item
 		key="${project.groupId}.${project.artifactId}.web-item.top.navigation.bar"
 		name="${project.groupId}.${project.artifactId}.web-item.top.navigation.bar"
