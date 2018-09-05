@@ -1,3 +1,48 @@
 Manifest-Version: 1.0
-Atlassian-Build-Date: 2018-09-05T12:37:16+0900
-
+Atlassian-Build-Date: 2018-09-05T13:46:23+0900
+Bnd-LastModified: 1536122785240
+Build-Jdk: 1.8.0_171
+Built-By: douba.shusaburo
+Bundle-Description: delegate_usermanager_for_jira
+Bundle-DocURL: http://www.ricksoft.jp/
+Bundle-ManifestVersion: 2
+Bundle-Name: delegate_usermanager_for_jira
+Bundle-SymbolicName: jp.ricksoft.plugins.delegate_usermanager_for_jira
+Bundle-Vendor: Ricksoft Co., Ltd.
+Bundle-Version: 1.0.3
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.example.tutorial.plugins.api;version="1.0.3"
+Import-Package: com.atlassian.application.api,com.atlassian.collectors,c
+ om.atlassian.crowd.embedded.api,com.atlassian.crowd.embedded.impl,com.a
+ tlassian.crowd.exception.runtime,com.atlassian.crowd.model.group,com.at
+ lassian.crowd.search,com.atlassian.crowd.search.builder,com.atlassian.c
+ rowd.search.query.entity,com.atlassian.crowd.search.query.entity.restri
+ ction,com.atlassian.crowd.search.query.membership,com.atlassian.event.a
+ pi,com.atlassian.gzipfilter.org.apache.commons.lang,com.atlassian.jira,
+ com.atlassian.jira.application,com.atlassian.jira.auditing,com.atlassia
+ n.jira.avatar,com.atlassian.jira.bc,com.atlassian.jira.bc.project.compo
+ nent,com.atlassian.jira.bc.user,com.atlassian.jira.component,com.atlass
+ ian.jira.event.issue,com.atlassian.jira.event.type,com.atlassian.jira.e
+ vent.user,com.atlassian.jira.event.web.action.admin,com.atlassian.jira.
+ exception,com.atlassian.jira.issue,com.atlassian.jira.plugin.user,com.a
+ tlassian.jira.plugin.webfragment,com.atlassian.jira.plugin.webfragment.
+ model,com.atlassian.jira.project,com.atlassian.jira.security,com.atlass
+ ian.jira.security.groups,com.atlassian.jira.security.xsrf,com.atlassian
+ .jira.user,com.atlassian.jira.user.util,com.atlassian.jira.util,com.atl
+ assian.jira.web.action,com.atlassian.jira.web.action.user,com.atlassian
+ .jira.web.bean,com.atlassian.json.marshal,com.atlassian.webresource.api
+ .assembler,com.google.common.base,com.google.common.collect,com.google.
+ common.escape,com.google.common.net,com.opensymphony.module.sequence,co
+ m.opensymphony.util,javax.annotation,javax.crypto,javax.crypto.spec,jav
+ ax.ejb,javax.naming,javax.rmi,javax.servlet.http,javax.sql,javax.xml.pa
+ rsers,javax.xml.transform,net.sf.hibernate,net.sf.hibernate.cfg,org.apa
+ che.commons.lang.builder,org.apache.commons.lang3,org.apache.commons.lo
+ gging,org.apache.log4j,org.apache.ojb.broker,org.apache.ojb.broker.quer
+ y,org.codehaus.jackson,org.codehaus.jackson.map,org.ofbiz.core.entity,o
+ rg.ofbiz.core.util,org.slf4j,org.springframework.beans.factory,org.spri
+ ngframework.beans.factory.annotation,org.springframework.stereotype,org
+ .w3c.dom,org.xml.sax,webwork.action,webwork.util
+Originally-Created-By: Apache Maven Bundle Plugin
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Spring-Context: *
+Tool: Bnd-2.4.1.201501161923
