@@ -20,12 +20,13 @@ import com.atlassian.jira.issue.comments.CommentManager;
 import com.atlassian.jira.user.ApplicationUser;
 import com.opensymphony.module.propertyset.PropertySet;
 import com.atlassian.jira.util.json.JSONObject;
+import com.atlassian.jira.util.json.JSONException;
 import java.util.*;
 
 
 @Component
 public class DelegateListener implements InitializingBean, DisposableBean {
-    private static final Logger log = LoggerFactory.getLogger(IssueCreatedResolvedListener.class);
+    private static final Logger log = LoggerFactory.getLogger(DelegateListener.class);
     private static final String publicCommentKey = "sd.public.comment";
 
     @JiraImport
@@ -64,7 +65,11 @@ public class DelegateListener implements InitializingBean, DisposableBean {
              * 内部コメントプロパティの作成
              */
             JSONObject internalJsonObject = new JSONObject();
-            internalJsonObject.put("internal", true);
+            try {
+            	internalJsonObject.put("internal", true);
+            }catch(JSONException e) {
+            	//log.info(e.getStackTrace().toString());
+            }
             Map<String, JSONObject> internalProperty = new HashMap<>();
             internalProperty.put(publicCommentKey, internalJsonObject);
 
@@ -75,13 +80,13 @@ public class DelegateListener implements InitializingBean, DisposableBean {
             StringBuilder sb = new StringBuilder();
             for (String group : groups) {
                 if (group.equals(DelegateManager.getGoldSupportUsresGruopName())) {
-                    sb.append("ゴールドサポートご利用です : ").append(DelegateManager.getProperties(reporter));
+                    sb.append("ゴールドサポートご利用です : ").append(DelegateManager.getProperties(reporter)).append("\n");
                 } else if (group.equals(DelegateManager.getSilverSupportUsresGruopName())) {
-                    sb.append("シルバーサポートご利用です : ").append(DelegateManager.getProperties(reporter));
+                    sb.append("シルバーサポートご利用です : ").append(DelegateManager.getProperties(reporter)).append("\n");
                 } else if (group.equals(DelegateManager.getRickcloudUsresGruopName())) {
-                    sb.append("リッククラウドご利用です : ").append(DelegateManager.getProperties(reporter));
+                    sb.append("リッククラウドご利用です : ").append("\n");
                 } else if (group.equals(DelegateManager.getEvaluationSupportUsresGruopName())) {
-                    sb.append("評価利用です : ").append(DelegateManager.getProperties(reporter));
+                    sb.append("評価利用です ").append("\n");
                 }
             }
 
@@ -89,7 +94,7 @@ public class DelegateListener implements InitializingBean, DisposableBean {
              * コメント追加
              */
             if (sb.toString() != null) {
-                
+            	commentManager.create(issue, projectLeader, sb.toString(), null, null, new Date(), internalProperty, true);
             }
         }
     }
