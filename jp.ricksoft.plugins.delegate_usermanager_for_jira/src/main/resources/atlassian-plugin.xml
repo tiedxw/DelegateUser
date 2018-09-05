@@ -3,6 +3,7 @@
 	<plugin-info>
 		<description>${project.description}</description>
 		<version>${project.version}</version>
+        
 		<vendor name="${project.organization.name}" url="${project.organization.url}" />
 		<param name="plugin-icon">images/pluginIcon.png</param>
 		<param name="plugin-logo">images/pluginLogo.png</param>
@@ -56,6 +57,18 @@
 				alias="DelegateAuditUser">
 				<view name="success">/templates/audituser.vm</view>
 				<view name="error">/templates/audituser.vm</view>
+			</action>
+		</actions>
+	</webwork1>
+    <webwork1 key="${project.groupId}.${project.artifactId}.webwork.edituser"
+		name="${project.groupId}.${project.artifactId}.webwork.comment"
+		roles-required="pickusers">
+		<actions>
+			<action
+				name="${project.groupId}.${project.artifactId}.action.DelegateListener"
+				alias="DelegateListener">
+				<!-- <view name="input">/templates/edituser.vm</view>
+				<view name="error">/templates/edituser.vm</view> -->
 			</action>
 		</actions>
 	</webwork1>

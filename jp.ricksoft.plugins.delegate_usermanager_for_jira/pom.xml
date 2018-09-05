@@ -98,6 +98,8 @@
 					<productVersion>${jira.version}</productVersion>
 					<productDataVersion>${jira.data.version}</productDataVersion>
 					<testResourcesVersion>${jira.version}</testResourcesVersion>
+                    <enableQuickReload>true</enableQuickReload>
+                    <enableFastdev>false</enableFastdev>
 					<!-- <log4jProperties>src/main/resources/log4j.properties</log4jProperties> -->
 				</configuration>
 			</plugin>
