@@ -68,7 +68,7 @@ public class DelegateListener implements InitializingBean, DisposableBean {
             try {
             	internalJsonObject.put("internal", true);
             }catch(JSONException e) {
-            	//log.info(e.getStackTrace().toString());
+            	log.info(e.getStackTrace().toString());
             }
             Map<String, JSONObject> internalProperty = new HashMap<>();
             internalProperty.put(publicCommentKey, internalJsonObject);
