@@ -27,7 +27,7 @@ import java.util.*;
 @Component
 public class DelegateListener implements InitializingBean, DisposableBean {
     private static final Logger log = LoggerFactory.getLogger(DelegateListener.class);
-    private static final String publicCommentKey = "sd.public.comment";
+    private static final String PUBLIC_COMMENT_KEY = "sd.public.comment";
 
     @JiraImport
     private final EventPublisher eventPublisher;
@@ -71,7 +71,7 @@ public class DelegateListener implements InitializingBean, DisposableBean {
             	//log.info(e.getStackTrace().toString());
             }
             Map<String, JSONObject> internalProperty = new HashMap<>();
-            internalProperty.put(publicCommentKey, internalJsonObject);
+            internalProperty.put(PUBLIC_COMMENT_KEY, internalJsonObject);
 
             /*
              * グループをチェックしてコメントを作成
