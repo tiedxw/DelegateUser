@@ -93,7 +93,7 @@ public class DelegateListener implements InitializingBean, DisposableBean {
             /*
              * コメント追加
              */
-            if (sb.toString() != null) {
+            if (sb.toString().length() > 0) {
             	commentManager.create(issue, projectLeader, sb.toString(), null, null, new Date(), internalProperty, true);
             }
         }
