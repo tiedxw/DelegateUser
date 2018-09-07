@@ -170,30 +170,14 @@
 											[4.2.3,)
 										</versionRange>
 										<goals>
-											<goal>
-												compress-resources
-											</goal>
-											<goal>
-												copy-bundled-dependencies
-											</goal>
-											<goal>
-												copy-test-bundled-dependencies
-											</goal>
-											<goal>
-												filter-plugin-descriptor
-											</goal>
-											<goal>
-												filter-test-plugin-descriptor
-											</goal>
-											<goal>
-												generate-rest-docs
-											</goal>
-											<goal>
-												generate-manifest
-											</goal>
-											<goal>
-												generate-test-manifest
-											</goal>
+											<goal>compress-resources</goal>
+											<goal>copy-bundled-dependencies</goal>
+											<goal>copy-test-bundled-dependencies</goal>
+											<goal>filter-plugin-descriptor</goal>
+											<goal>filter-test-plugin-descriptor</goal>
+											<goal>generate-rest-docs</goal>
+											<goal>generate-manifest</goal>
+											<goal>generate-test-manifest</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
