@@ -7,7 +7,7 @@
 	<groupId>jp.ricksoft.plugins</groupId>
 	<artifactId>delegate_usermanager_for_jira</artifactId>
 	<name>delegate_usermanager_for_jira</name>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<description>delegate_usermanager_for_jira</description>
 	<organization>
 		<name>Ricksoft Co., Ltd.</name>
@@ -20,6 +20,7 @@
 		<amps.version>6.2.11</amps.version>
 		<maven.compiler.version>1.8</maven.compiler.version>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
 	</properties>
 
 	<packaging>atlassian-plugin</packaging>
@@ -70,19 +71,13 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.0.8.RELEASE</version>
+            <version>4.3.6.RELEASE</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>opensymphony</groupId>
-            <artifactId>propertyset</artifactId>
-            <version>1.3</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.atlassian.plugin</groupId>
             <artifactId>atlassian-spring-scanner-annotation</artifactId>
-            <version>2.1.7</version>
+            <version>${atlassian.spring.scanner.version}</version>
             <scope>compile</scope>
         </dependency>
 	</dependencies>
@@ -129,6 +124,28 @@
 					</execution>
 				</executions>
 			</plugin>
+            <plugin>
+                <groupId>com.atlassian.plugin</groupId>
+                <artifactId>atlassian-spring-scanner-maven-plugin</artifactId>
+                <version>${atlassian.spring.scanner.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>atlassian-spring-scanner</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scannedDependencies>
+                        <dependency>
+                            <groupId>com.atlassian.plugin</groupId>
+                            <artifactId>atlassian-spring-scanner-external-jar</artifactId>
+                        </dependency>
+                    </scannedDependencies>
+                    <verbose>false</verbose>
+                </configuration>
+            </plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
